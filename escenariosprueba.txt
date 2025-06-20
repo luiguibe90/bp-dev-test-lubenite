@@ -1,0 +1,9 @@
+Escenarios
+1. Obtener todos los personajes con todas sus caracteristicas
+
+2. Crear el personaje con los datos name Iron03, alterego tony03, description nuevopersonaje y powers alto.
+
+3. Actualizar el personaje cuyo identificador sea 285 con los datos name Iron09, alterego tony09, description antiguopersonaje y powers bajo.
+
+4. Eliminar personaje cuyo id 999, y da codigo de error 404
+

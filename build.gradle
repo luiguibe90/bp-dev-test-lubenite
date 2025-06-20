@@ -28,6 +28,10 @@ dependencies {
 
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:33.2.0-jre'
+    
+    // Karate dependencies
+    testImplementation 'com.intuit.karate:karate-junit5:1.4.0'
+    testImplementation 'com.intuit.karate:karate-core:1.4.0'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'ch.qos.logback:logback-classic:1.4.14'
@@ -53,6 +57,14 @@ application {
 
 test {
     useJUnitPlatform()
+    systemProperty "karate.options", System.properties.getProperty("karate.options")
+    systemProperty "karate.env", System.properties.getProperty("karate.env", "local")
+    outputs.upToDateWhen { false }
+    
+    // Para incluir todos los directorios de recursos classpath para Karate
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
 }
 
 task stage(dependsOn: ['build', 'clean'])
